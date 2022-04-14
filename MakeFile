@@ -1,0 +1,12 @@
+# phony rules
+.PHONY: build
+build:
+	@docker run --rm -it -v F:/DSA1/File/:/go/src DSA1 bash -c "go build -o DSA1 fileRead.go"
+
+.PHONY: build-image
+build-image:
+	@docker build -t=DSA1 . 
+
+.PHONY: run
+run:
+	@docker run --rm -it -v F:/DSA1/File/:/go/src DSA1 bash -c "go run fileRead.go"
