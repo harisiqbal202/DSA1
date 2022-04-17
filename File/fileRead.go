@@ -38,7 +38,7 @@ func main() {
 	for i := 1; s.Scan(); i++ {
 		fmt.Println(i, ": ", s.Text())
 	}
-
+	f.Close()
 	//File reading by sentence
 
 	//error
@@ -48,10 +48,13 @@ func main() {
 	// }
 
 	//printing characters
+	f1, err := os.Open(*fileptr)
 	fmt.Println("Printing characters")
-	s1 := bufio.NewScanner(f)
+	s1 := bufio.NewScanner(f1)
 	for i := 1; s1.Scan(); i++ {
 		str1 := string(s1.Text())
 		fmt.Println(i, " line ", str1)
+
 	}
+	f1.Close()
 }
